@@ -8,7 +8,7 @@ function Nav() {
 
   return (
     <div style={{
-        background: 'gold',
+        background: 'green',
          paddingTop: '8px',
     }}>
         <nav>

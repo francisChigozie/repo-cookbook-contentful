@@ -10,7 +10,6 @@ function App() {
 
   return (
     <Router>
-
     <div className="Ap">
        <Nav />
           <Switch>
@@ -19,17 +18,18 @@ function App() {
              <Route path="/signup" component={Signup}/>
              <Route path="/contact" component={Contact}/>
           </Switch>
-
-          
     </div>
-
     </Router>
   );
 }
 const Home = () =>{
   return(
     <div>
-      <h1>We are to start cookin..haha</h1>
+      <form>
+       <label  className="submit-btn"><button type="submit" className="btn-color">
+         <input type="text" placeholder="search.."/>{""}Submit</button>
+       </label>
+       </form>
     </div>
   )
 }
