@@ -12,16 +12,19 @@ function Nav() {
          paddingTop: '8px',
     }}>
         <nav>
+            <Link style={navStyle} to="/">
+                     
+              <h1 className="title"
+                  style={navStyle}>{siteTitle}</h1>
+                     
+                  </Link>
             <ul className="nav-link" style={{
                 listStyle: 'none', 
                 display: 'flex',
-                justifyContent: 'space-evenly'
+                justifyContent: 'space-evenly',
+                marginTop: '-1rem'
                 }}>
-                 <Link style={navStyle} to="/">
-                     <li>
-                <h1 style={navStyle}>{siteTitle}</h1>
-                     </li>
-                  </Link>
+                 
                 <Link style={navStyle} to="/about" >
                     <li>About</li>
                 </Link>
