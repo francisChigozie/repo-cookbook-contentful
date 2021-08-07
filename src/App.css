@@ -1,14 +1,74 @@
 .submit-btn{
-  padding-left: 1050px;
+  padding-left: 18px;
   
 }
-
 .btn-color{
   background-color: rgba(51, 226, 17, 0.5);
-  color: rgba(241, 11, 11,0.5);
-  padding-top: 6px;
+  color: whitesmoke;
+  font-size: medium;
 }
-
 .title{
   padding-left: 15px;
+}
+
+.App-contact{
+  text-align: center;
+}
+
+html,body{
+  background-color: whitesmoke;
+}
+
+.container {
+  display: flex;
+  width: 600px;
+  margin-top: 0rem;
+}
+
+.wrapper {
+  width: 600px;
+  margin-left: -120px;
+}
+:any-link{
+  text-decoration: greenyellow;
+}
+.App-detail{
+  text-align: center;
+}
+.order{
+   background: green;
+   color: whitesmoke;
+  border: 1px solid chartreuse;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.app-bar{
+  text-align: center;
+  background: green;
+   color: whitesmoke;
+  border: 1px solid green;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 500px;
+  margin-top: -0.97rem;
+}
+
+.txt-bar{
+  padding-left: 20px
+  ;
+}
+.txts-bar{
+  padding-left: 80px;
+  margin-left: -3.5rem;
+}
+
+.contentful{
+  margin-left: -680px;
 }
