@@ -36,9 +36,9 @@ export class Contact extends Component {
       pwd: this.state.pwd
     }
 
-    console.log("user confirmed form, submitting now", userData)
+    console.log("user confirmed form, submitting now", userData, process.env.REACT_APP_API_URL)
 
-    fetch(process.env.REACT_APP_API_URL, {
+    fetch(`${process.env.REACT_APP_API_URL}/app/signup`, {
       headers: {
         'Content-Type': 'application/json'
       },
