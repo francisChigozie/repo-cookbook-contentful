@@ -12,17 +12,22 @@ function Nav() {
          paddingTop: '8px',
     }}>
         <nav>
-            <Link style={navStyle} to="/">
+            <Link style={navStyle} to="/" >
                      
               <h1 className="title"
                   style={navStyle}>{siteTitle}</h1>
+                  <form>
+       <label  className="submit-btn"><button type="submit" className="btn-color">
+         <input type="text" placeholder="search.."/>{""}Login</button>
+       </label>
+       </form>
                      
                   </Link>
-            <ul className="nav-link" style={{
+            <ul className="nav-link navbar-item" style={{
                 listStyle: 'none', 
                 display: 'flex',
                 justifyContent: 'space-evenly',
-                marginTop: '-1rem'
+                marginTop: '-1rem',
                 }}>
                  
                 <Link style={navStyle} to="/about" >
@@ -34,10 +39,24 @@ function Nav() {
                 <Link style={navStyle} to="/contact" >
                     <li>Contact</li>
                 </Link>
+            
+                
+                
             </ul>
         </nav>
+         
       
     </div>
   );
 }
 export default Nav;
+
+/* <Link style={navStyle} to="/exercise" >
+                    <li>Edit Exercise</li>
+                </Link>
+                <Link style={navStyle} to="/create" >
+                    <li>Create exercises</li>
+                </Link>
+                <Link style={navStyle} to="/user" >
+                    <li>Create User</li>
+                </Link> */
