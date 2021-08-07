@@ -1,19 +1,19 @@
-import About from "./Conponent/About"
-import Signup from "./Conponent/Signup"
-import Contact from "./Conponent/Contact"
-import Nav from "./Conponent/Nav"
+import About from "./components/About"
+import Signup from "./components/Signup"
+import Contact from "./components/Contact"
+import Nav from "./components/Nav"
 import './App.css';
 //import "bootstrap/dist/css/bootstrap.min.css"
-import ExerciseList from "./Conponent/exercises-list.conponent";
-import EditExercise from "./Conponent/edit-exercise.conponent";
-import CreateExercise from "./Conponent/create-exercise.conponent.js";
-import CreateUser from "./Conponent/create-user.conponent";
-import Posts from "./Conponent/Posts"
+import ExerciseList from "./components/exercises-list.conponent";
+import EditExercise from "./components/edit-exercise.conponent";
+import CreateExercise from "./components/create-exercise.conponent.js";
+import CreateUser from "./components/create-user.conponent";
+import Posts from "./components/Posts"
 import React,{useState,useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import { client } from "./client";
-import ArticleDetail from "./Conponent/ArticleDetail";
-import LoginControl from "./Conponent/LoginControl"
+import ArticleDetail from "./components/ArticleDetail";
+import LoginControl from "./components/LoginControl"
 
 
 function App() {
