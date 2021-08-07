@@ -6,17 +6,11 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 
  export class FormPersonalDetails extends Component {
-    continue = e => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
-     back = e => {
-        e.preventDefault();
-        this.props.prevStep();
-    }
-
+   
     render() {
-        const {values, handleChange} = this.props;
+        const {values, handleChange, nextStep,prevStep} = this.props;
+        const{occupation,city,pwd} = values;
+
 
         return (
             <MuiThemeProvider>
@@ -25,27 +19,30 @@ import RaisedButton from 'material-ui/RaisedButton'
                     
                     <TextField  hintText="Enter Your Occupation"
                            floatingLabelFixed="Occupation"
-                           onChange={handleChange('occupation')}
+                           name="occupation"
+                           onChange={handleChange}
                            defaultValue={values.occupation} className="txt-bar"/>
                 <br />
                     <TextField  hintText="Enter Your City"
                            floatingLabelFixed="City"
-                           onChange={handleChange('city')}
+                           name="city"
+                           onChange={handleChange}
                            defaultValue={values.city} className="txt-bar"/>
                 <br />
                     <TextField  hintText="Enter Your Password"
                            floatingLabelFixed="Pwd"
                            type="password"
-                           onChange={handleChange('pwd')}
+                           name="pwd"
+                           onChange={handleChange}
                            defaultValue={values.pwd} className="txt-bar"/> <br />
-                    <labe className="txt-bar"><RaisedButton label="Contnue"
+                    <labe className="txt-bar"><RaisedButton label="Continue"
                            primary={true} 
                            style={btnStyle.button}
-                           onClick={this.continue} /> </labe>
+                           onClick={nextStep} /> </labe>
                     <RaisedButton label="Back"
                            primary={false} 
                            style={btnStyle.button}
-                           onClick={this.back}/>                               
+                           onClick={prevStep}/>                               
 
                 </React.Fragment>
             </MuiThemeProvider>

@@ -5,13 +5,10 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 
  export class FormContactDetails extends Component {
-    continue = e => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
-
+    
     render() {
-        const {values, handleChange} = this.props;
+        const {values, handleChange,nextStep} = this.props;
+        const{firstName,lastName,email} = values;
 
         return (
             <MuiThemeProvider >
@@ -21,24 +18,24 @@ import RaisedButton from 'material-ui/RaisedButton'
                            floatingLabelFixed="First Name"
                            name="firstName"
                            onChange={handleChange}
-                           defaultValue={values.firstName} className="txt-bar"/>
+                           defaultValue={firstName} className="txt-bar"/>
                 <br />
                    <TextField  hintText="Enter Your Last Name"
                            floatingLabelFixed="Last Name"
-                           name="lasttName"
+                           name="lastName"
                            onChange={handleChange}
-                           defaultValue={values.lastName} className="txt-bar"/>
+                           defaultValue={lastName} className="txt-bar"/>
                 <br />
                     <TextField  hintText="Enter Your Email"
                            floatingLabelFixed="Email"
                            name="email"
                            onChange={handleChange}
-                           defaultValue={values.email} className="txt-bar"/><br />
+                           defaultValue={email} className="txt-bar"/><br />
                            <br />
                    <label className="txt-bar"><RaisedButton label="Continue"  
                            primary={true} 
                            style={btnStyle.button} 
-                           onClick={this.continue} /></label>                       
+                           onClick={nextStep} /></label>                       
                     
                 </React.Fragment>
             </MuiThemeProvider>

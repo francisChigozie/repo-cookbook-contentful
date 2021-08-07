@@ -6,18 +6,12 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 
  export class Comfirm extends Component {
-    continue = e => {
-        e.preventDefault();
-        // PROCESS FORM //
-       this.props.nextStep();
-    }
-     back = e => {
-        e.preventDefault();
-        this.props.prevStep();
-    }
     
     render() {
-        const {values : {firstName,lastName,email,occupation,city,pwd}} = this.props;
+        const{values, nextStep, prevStep} = this.props;
+        const {firstName,lastName,email,occupation,city,pwd} = values;
+
+        console.log(this.propps)
 
         return (
             <MuiThemeProvider>
@@ -55,12 +49,12 @@ import RaisedButton from 'material-ui/RaisedButton'
                    <label className="txt-bar"><RaisedButton label="Comfirm And Continue"
                            primary={true} 
                            style={btnStyle.button}
-                           onClick={this.continue}
+                           onClick={nextStep}
                            /></label>
                     <RaisedButton label="Back"
                            primary={false} 
                            style={btnStyle.button}
-                           onClick={this.back} 
+                           onClick={prevStep} 
                            />                          
 
                 </React.Fragment>

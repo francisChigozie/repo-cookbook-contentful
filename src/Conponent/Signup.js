@@ -10,22 +10,60 @@ export class Contact extends Component {
   constructor(props){
     super(props);
 
-     this.onClick = this.onClick.bind(this)
      this.nextStep = this.nextStep.bind(this)
+     this.prevStep = this.prevStep.bind(this)
+     this.handleChange = this.handleChange.bind(this)
+     this.sendSignupRequest = this.sendSignupRequest.bind(this)
 
      this.state = {
-    step: 1, firstName: '', lastName: '',
-    email: '',occupation: '', city: '',pwd: ''
+    step: 1, 
+    firstName: '', 
+    lastName: '',
+    email: '',
+    occupation: '', 
+    city: '',
+    pwd: ''
   }
   
+  }
+
+  sendSignupRequest(){
+    const userData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      occupation: this.state.occupation,
+      city: this.state.city,
+      pwd: this.state.pwd,
+    }
+
+    console.log("user comfirmed form, submitting now", userData, process.env.REACT_APP_API_URL)
+
+    fetch(`${process.env.REACT_APP_API_URL}/app/signup`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify(userData)
+    })
+     .then(res => res.json())
+     .then(res => {
+       // move the user to the loogged in route / component
+       
+       console.log(res)
+     })
+     .catch(err => alert(err))
   }
   
   // Procceed to next step
   nextStep = () => {
-    console.log("xxx")
     const {step} = this.state;
     this.setState({step: step + 1});
-    console.log("step",step)
+    console.log("step is",step)
+
+    if(step === 3){
+      this.sendSignupRequest()
+    }
   }
 
   // Go back to previous step
@@ -34,46 +72,33 @@ export class Contact extends Component {
     this.setState({step: step - 1});
   }
 
-  // HandleSubmit
-handleSubmit = e => {
-   e.preventDefault();
-  
-
-  console.log( e.target.value)
-  //Make a post request
-  
-}
-
 // Handle fields change
 handleChange = e => {
-   e.preventDefault();
   this.setState({[e.target.name]: e.target.value});
 }
 
   render() {
     const {step} = this.state;
-    const {firstName,lastName,email,occupation,city,pwd} = this.state;
-    const values = {firstName,lastName,email,occupation,city,pwd}
    
     switch(step) {
       case 1:
         return(
           <FormContactDetails  nextStep={this.nextStep}
                         handleChange={this.handleChange}
-                        values={values} />
+                        values={this.state} />
         );
         case 2:
           return (
           <FormPersonalDetails  nextStep={this.nextStep}
                         prevStep={this.prevStep}  
                         handleChange={this.handleChange}
-                        values={values}/>
+                        values={this.state}/>
         );
         case 3:
           return (
           <Comfirm  nextStep={this.nextStep}
                         prevStep={this.prevStep}  
-                        values={values}/>
+                        values={this.state}/>
         ); 
         case 4:
            return <Success/>    
