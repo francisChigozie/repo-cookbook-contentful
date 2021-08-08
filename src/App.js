@@ -44,7 +44,6 @@ const Home = () =>{
              <div className="wrapper">
 
                
-
              </div>
           </main>
        </div></label>
