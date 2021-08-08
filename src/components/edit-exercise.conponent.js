@@ -1,21 +1,10 @@
-
-function About() {
-
-  return (
-    <div className="App">
-        <h1>Welcome to about page!</h1>
-      
-    </div>
-  );
-}
-export default About;
-/*
 import React, { Component } from 'react'
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { useParams } from 'react-router';
 
-export default class CreateExercise extends Component {
+export default class EditExercise extends Component {
     constructor(props){
         super(props);
 
@@ -28,17 +17,28 @@ export default class CreateExercise extends Component {
         this.state = {
             username: "",
             description: "",
-            duration: 0,
+            duration: "",
             date: new Date(),
-            users: [],
+            users: []
         }
+        
     }
 
+    //EditExercise
     componentDidMount(){
-        this.setState({
-            users: ['test user'],
-            username: 'test user',
-        })
+        
+        axios.get('http://localhost:5000/exercises/'+ this.props.match.params.id)
+          .then(response => {
+              this.setState({
+                  username: response.data.username,
+                  description:response.data.description,
+                  duration:response.data.duration,
+                  date: new Date(response.data.data)
+              })
+          })
+         . catch(function (error){
+              console.log(error);
+          })
     }
 
     onChangeUsername(e){
@@ -64,20 +64,26 @@ export default class CreateExercise extends Component {
             username: this.state.username,
             description: this.state.description,
             duration: this.state.duration,
-            date: this.state.date,
+            date: this.state.date
         }
 
-        console.log(exercise);
+        console.log(exercise)
+
+        //EditExercise
+        axios.post(`http://localhost:5000/exercise/update`,
+        +this.props.match.params.id, exercise)
+          .then(res => console.log(res.data));
+
         window.location = "/";
     }
 
     render() {
         return (
-            <div className="App-contact">
-               <h3>Create New Exercise Log</h3>
+            <div>
+               <h3>Edit Exercise Log</h3>
                <form onSubmit={this.onSubmit}>
                    <div className="form-group">
-                       <label>Username:</label>
+                       <label>username:</label>
                        <select ref="userInput"
                        required
                        className="form-control"
@@ -111,13 +117,14 @@ export default class CreateExercise extends Component {
                      <div className="form-group">
                          <label>Date:</label> 
                          <div>
-                           <DatePicker
+                            <DatePicker
                            selected={this.state.date}
                            onChange={this.onChangeDate}
                            />  
+
                      <div className="form-group">
-                         <input type="submit" value="Create Exercise Log"
-                         className="btn btn-primary mt-3" />
+                         <input type="submit" value="Edit Exercise Log"
+                         className="btn btn-primary"/>
                          </div>        
                              </div> 
                          </div>            
@@ -128,4 +135,4 @@ export default class CreateExercise extends Component {
             </div>
         )
     }
-}*/
+}

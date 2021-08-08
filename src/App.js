@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Posts from "./components/Posts"
 import React,{useState,useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-//import { client } from "./client";
+import { client } from "./client";
 import ArticleDetail from "./components/ArticleDetail";
 import LoginControl from "./components/LoginControl"
 
@@ -42,8 +42,9 @@ const Home = () =>{
           </header>
           <main>
              <div className="wrapper">
-              <h1>Welcome to Home Page</h1>
-               {/*<Posts posts={articles}/>*/}
+
+               
+
              </div>
           </main>
        </div></label>
