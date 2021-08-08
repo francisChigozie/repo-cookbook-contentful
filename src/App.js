@@ -73,7 +73,7 @@ const Home = () =>{
           </header>
           <main>
              <div className="wrapper">
-               {/*<Posts posts={articles}/>*/}
+               <Posts posts={articles}/>
              </div>
           </main>
        </div></label>

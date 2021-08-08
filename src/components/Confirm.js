@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
  class Confirm extends Component {
     render() {
-        const {values, nextStep, PrevStep} = this.props;
+        const {values, nextStep, prevStep} = this.props;
         const {firstName, lastName, email, occupation, city} = values
 
         console.log(this.props)
@@ -52,7 +52,7 @@ import RaisedButton from 'material-ui/RaisedButton'
                 <RaisedButton label="Back"
                     primary={false} 
                     style={btnStyle.button}
-                    onClick={PrevStep} 
+                    onClick={prevStep} 
                 />                          
             </MuiThemeProvider>
         )
