@@ -14,7 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            username: "",
+            firstName: "",
             description: "",
             duration: "",
             date: new Date(),
@@ -23,35 +23,19 @@ import "react-datepicker/dist/react-datepicker.css";
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/users/')
+        axios.get('http://localhost:4000/app/users')
           .then(response => {
               if(response.data.length > 0){
                   this.setState({
-            users: response.data.map( user => user.username),
-            username: response.data[0].username
+            users: response.data.map( user => user.firstName),
+            firstName: response.data[0].firstName
         })
               }
           })
     }
 
-    //EditExercise
-  /*  componentDidMount(){
-        axios.get('http://localhost:5000/exercises/'+ this.props.match.prams.id)
-          .then(response => {
-              this.setState({
-                  username: response.data.username,
-                  description:response.data.description,
-                  duration:response.data.duration,
-                  date: new Date(response.data.data)
-              })
-          })
-         . catch(function (error){
-              console.log(error);
-          })
-    }*/
-
     onChangeUsername(e){
-        this.setState({username: e.target.value});
+        this.setState({firstName: e.target.value});
     }
 
     onChangeDescription(e){
@@ -70,20 +54,17 @@ import "react-datepicker/dist/react-datepicker.css";
         e.preventDefault();
 
         const exercise = {
-            username: this.state.username,
+            firstName: this.state.firstName,
             description: this.state.description,
             duration: this.state.duration,
             date: this.state.date
         }
 
         console.log(exercise)
-        //EditExercise
-        //axios.post(`http://localhost:5000/exercise/update`,
-        //+this.props.match.params.id, exercise)
         
-        axios.post(`http://localhost:5000/exercises/add`, exercise)
+        axios.post(`http://localhost:4000/app/exercise/`, exercise)
           .then(res => console.log(res.data));
-        window.location = "/";
+        window.location = "/exercise";
     }
 
     render() {
@@ -96,7 +77,7 @@ import "react-datepicker/dist/react-datepicker.css";
                        <select ref="userInput"
                        required
                        className="form-control"
-                       value={this.state.username}
+                       value={this.state.firstName}
                        onChange={this.onChangeUsername}>
                        {
                            this.state.users.map(function(user) {
@@ -145,4 +126,4 @@ import "react-datepicker/dist/react-datepicker.css";
         )
     }
 }
-export default CreateExercise;
+export default CreateExercise;      

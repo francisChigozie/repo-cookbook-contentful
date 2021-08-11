@@ -8,7 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton'
  export class FormPersonalDetails extends Component {
     render() {
         const {values, handleChange, nextStep, prevStep} = this.props;
-        const {occupation, city, pwd} = values
+        const {occupation, city, password} = values
         return (
             <MuiThemeProvider>
                 <h2 className="App-detail">Enter Personal Details</h2><br />
@@ -25,13 +25,13 @@ import RaisedButton from 'material-ui/RaisedButton'
                     defaultValue={city} className="txt-bar"/>
                 <br />
                 <TextField  hintText="Enter Your Password"
-                    floatingLabelFixed="Pwd"
+                    floatingLabelFixed="password"
                     type="password"
-                    name="pwd"
+                    name="password"
                     onChange={handleChange}
-                    defaultValue={pwd} className="txt-bar"/> 
+                    defaultValue={password} className="txt-bar"/> 
                 <br />
-                <label className="txt-bar"><RaisedButton label="Contnue"
+                <label className="txt-bar"><RaisedButton label="Continue"
                     primary={true} 
                     style={btnStyle.button}
                     onClick={nextStep} /> 

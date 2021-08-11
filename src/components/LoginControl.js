@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom';
 
 class LoginControl extends React.Component {
     constructor(props){
@@ -34,12 +34,30 @@ class LoginControl extends React.Component {
 }
 export default LoginControl;
 
-
+const navStyle = {
+        color: 'white', textDecoration: 'none'
+    }
 
 function UserGreeting(props){
-    return <h1>Welcome back !</h1>
-}
+    return (
+        <div>
+            <h1>Welcome back !</h1>
+            <div className="loginContainer App-detail" id="flex">
+            <div className="box">
+                <h4>
+                    <Link to="/create" style={navStyle}>Create exercise</Link>
+                </h4>
+            </div>
+            <div className="box">
+                 <h4>
+                     <Link to="/tocook" style={navStyle}>Create To-Cook</Link>
+                 </h4>
+            </div>
+            </div>
 
+        </div>
+    )
+}  
 function GuestGreeting(props){
     return<h1>Plesae Sign Up!</h1>
 }

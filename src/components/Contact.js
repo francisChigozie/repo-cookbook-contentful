@@ -2,7 +2,7 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import React, { useState, useEffect} from 'react'
+import React, { useState} from 'react'
 
 function ContactForm(){
   const [first,setFirst] = useState("")

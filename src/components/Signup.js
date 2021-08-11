@@ -22,7 +22,7 @@ export class Contact extends Component {
       email: '',
       occupation: '',
       city: '',
-      pwd: ''
+      password: ''
     }
   }
   
@@ -33,7 +33,7 @@ export class Contact extends Component {
       email: this.state.email,
       occupation: this.state.occupation,
       city: this.state.city,
-      pwd: this.state.pwd
+      password: this.state.password
     }
 
     console.log("user confirmed form, submitting now", userData, process.env.REACT_APP_API_URL)
