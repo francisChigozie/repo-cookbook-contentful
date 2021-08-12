@@ -1,6 +1,9 @@
 import {Link} from 'react-router-dom';
 import React,{useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import RaisedButton from 'material-ui/RaisedButton'
+
 
 function Nav() {
   
@@ -26,7 +29,7 @@ function Nav() {
     const siteTitle = `Chigozie's Cook Book`;
 
   return (
-
+       <MuiThemeProvider>
     <div style={{
         background: 'green',
          paddingTop: '8px',
@@ -34,15 +37,7 @@ function Nav() {
         <nav>
             <Link style={navStyle} to="/" >  
               <h1 className="titles"
-                  style={navStyle}>{siteTitle}</h1>
-                  <form >
-       <label  className="submit-btn"><button type="submit" className="btn-color">
-         <input type="text" placeholder="username/email.." name="addText"
-          className="form-control "
-         />{""}Login</button>
-       </label>
-       </form>
-                     
+                  style={navStyle}>{siteTitle}</h1>   
                   </Link>
             <ul className="nav-link navbar-item" style={{
                 listStyle: 'none', 
@@ -60,10 +55,19 @@ function Nav() {
                 <Link style={navStyle} to="/contact" >
                     <li>Contact</li>
                 </Link>
+                
             </ul>
+            
         </nav>
+        <Link to="/login">
+                    
+                      <RaisedButton label="Login"
+                        primary={true}
+                    />
+                    
+                </Link>
     </div>
-  
+  </MuiThemeProvider>
   );
 }
 
@@ -78,4 +82,10 @@ export default Nav;
                 </Link>
                 <Link style={navStyle} to="/user" >
                     <li>Create User</li>
-                </Link> */
+                </Link> 
+                <label  className="submit-btn"><button type="submit" className="btn-color">
+         <input type="text" placeholder="username/email.." name="addText"
+          className="form-control "
+         />{""}Login</button>
+       </label>
+       </form>*/

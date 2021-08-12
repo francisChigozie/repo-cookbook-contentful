@@ -15,13 +15,22 @@ import ArticleDetail from "./components/ArticleDetail";
 import LoginControl from "./components/LoginControl"
 import Preferences from "./components/Preferences";
 import Todo from "./components/Tocook/Todo";
+import Login from "./components/Login/Login";
+import useToken from "./components/Login/useToken";
+
 
 
 function App() {
+  const { token, setToken } = useToken();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
   
   return (
     <Router>
     <div className="App-contact">
+      <Route path="/dashboard" component={LoginControl}/>
        <div>
           <Nav />
           <Switch>
@@ -29,17 +38,17 @@ function App() {
              <Route path="/about" component={About}/>
              <Route path="/signup" component={Signup}/>
              <Route path="/contact" component={Contact}/>
-             <Route path="/dashboard" component={LoginControl}/>
+             
              <Route path="/preferences" component={Preferences}/>
              <Route path="/article/:id" component={ArticleDetail}/>
           </Switch>
        </div>
           <div className="form-div">
-            <Route path="/create" component={CreateExercise}/>
-            <Route path="/tocook" component={Todo}/>
-            <Route path="/exercise" component={ExerciseList}/>
-            <Route path="/edit/:id" component={EditExercise}/>
-
+             <Route path="/create" component={CreateExercise}/>
+             <Route path="/tocook" component={Todo}/>
+             <Route path="/exercise" component={ExerciseList}/>
+             <Route path="/edit/:id" component={EditExercise}/>
+             <Route path="/login" component={Login}/>
           </div>
     </div>
     </Router>
@@ -59,6 +68,7 @@ const Home = () =>{
   }, [])
 
   return(
+    
     <div className="App-contact">
        
        <label className="contentful"><div className="container ">
@@ -72,6 +82,7 @@ const Home = () =>{
           </main>
        </div></label>
     </div>
+    
   )
 }
 export default App;
