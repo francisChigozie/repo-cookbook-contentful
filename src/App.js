@@ -12,34 +12,44 @@ import React,{useState,useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import { client } from "./client";
 import ArticleDetail from "./components/ArticleDetail";
-import LoginControl from "./components/LoginControl"
-import Preferences from "./components/Preferences";
 import Todo from "./components/Tocook/Todo";
+import LoginControl from "./components/Login/LoginControl"
 import Login from "./components/Login/Login";
-import useToken from "./components/Login/useToken";
 
+// get token
+/*const token = localStorage.getItem("sessionToken")
+
+if(token) {
+    // user has a session / is logged in 
+}
+// save token
+const storedToken = localStorage.getItem('sessionToken') || null;*/
 
 
 function App() {
-  const { token, setToken } = useToken();
+ /* const [token, setToken] = useState(storedToken)
 
-  if(!token) {
-    return <Login setToken={setToken} />
+const updateToken = (token) => {
+     console.log(token)
+     localStorage.setItem("sessionToken", token.token)
   }
-  
+      if(!token) {
+    return<Login updateToken={updateToken}/> 
+  }*/
+
   return (
     <Router>
+     
     <div className="App-contact">
-      <Route path="/dashboard" component={LoginControl}/>
        <div>
           <Nav />
+           
+          <Route path="/dashboard" component={LoginControl}/>
           <Switch>
              <Route path="/" exact component={Home}/>
              <Route path="/about" component={About}/>
              <Route path="/signup" component={Signup}/>
              <Route path="/contact" component={Contact}/>
-             
-             <Route path="/preferences" component={Preferences}/>
              <Route path="/article/:id" component={ArticleDetail}/>
           </Switch>
        </div>
@@ -49,6 +59,7 @@ function App() {
              <Route path="/exercise" component={ExerciseList}/>
              <Route path="/edit/:id" component={EditExercise}/>
              <Route path="/login" component={Login}/>
+             
           </div>
     </div>
     </Router>
@@ -65,10 +76,9 @@ const Home = () =>{
         setArticles(response.items)
       })
       .catch(console.error)
-  }, [])
+  }, []);
 
   return(
-    
     <div className="App-contact">
        
        <label className="contentful"><div className="container ">
@@ -82,7 +92,10 @@ const Home = () =>{
           </main>
        </div></label>
     </div>
-    
   )
 }
 export default App;
+
+/* const logout = () => {
+  localstorage.setItem("sessionToken",null)
+}*/

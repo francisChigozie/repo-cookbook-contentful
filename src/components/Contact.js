@@ -28,7 +28,7 @@ function handleSubmit(e){
            <MuiThemeProvider >
                 <React.Fragment>
                   <form onSubmit={handleSubmit}>
-                    <h2 className="App-detail">Enter Contact Details</h2><br />
+                    <h2 className="App-detail mt-4">Enter Contact Details</h2><br />
                     <TextField  hintText="Enter Your First Name"
                            floatingLabelFixed="First Name"
                            onChange={handleChange}

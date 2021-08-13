@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton'
         const {occupation, city, password} = values
         return (
             <MuiThemeProvider>
-                <h2 className="App-detail">Enter Personal Details</h2><br />
+                <h2 className="App-detail mt-5">Enter Personal Details</h2><br />
                 <TextField  hintText="Enter Your Occupation"
                     floatingLabelFixed="Occupation"
                     name="occupation"

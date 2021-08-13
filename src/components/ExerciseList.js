@@ -61,9 +61,11 @@ export default function ExerciseList() {
                    Delete</button></td>
         </tr>
      ))}
-       
+      
     </tbody>
   </table>
          </MuiThemeProvider>
     )
      }
+
+     

@@ -1,14 +1,38 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import RaisedButton from 'material-ui/RaisedButton'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Login from './Login';
+
+  // get token
+const token = localStorage.getItem("sessionToken")
+
+if(token) {
+    // user has a session / is logged in 
+}
+// save token
+const storedToken = localStorage.getItem('sessionToken') || null;
 
 class LoginControl extends React.Component {
     constructor(props){
         super(props);
        this.handleLoginClick = this.handleLoginClick.bind(this);
        this.handleLogoutClick = this.handleLogoutClick.bind(this);
-       this.state = {isLoggedIn: false};
-    }
+       this.handleUpdateToken = this.handleUpdateToken.bind(this);
 
+       this.state = {isLoggedIn: false};
+      this.state = {token: storedToken};
+    }
+    
+  handleUpdateToken({token}){
+      console.log(token)
+      this.setState(localStorage.setItem("sessionToken", token.token))
+
+      if(!token) {
+    return<Login updateToken={this.updateToken(token)}/> 
+  }
+
+}
     handleLoginClick(){
         this.setState({isLoggedIn: true});
     }
@@ -26,9 +50,11 @@ class LoginControl extends React.Component {
         }
 
         return (
+            <MuiThemeProvider>
             <div  className="App-detail">
                 <Greeting isLoggedIn={isLoggedIn}/>{button}
             </div>
+            </MuiThemeProvider>
         );
     }
 }
@@ -41,7 +67,7 @@ const navStyle = {
 function UserGreeting(props){
     return (
         <div>
-            <h1>Welcome back !</h1>
+            <h1 className ="log-design mt-5">Welcome back !</h1>
             <div className="loginContainer App-detail" id="flex">
             <div className="box">
                 <h4>
@@ -53,13 +79,23 @@ function UserGreeting(props){
                      <Link to="/tocook" style={navStyle}>Create To-Cook</Link>
                  </h4>
             </div>
+            <div className="box">
+                <h4>
+                    <Link to="/create" style={navStyle}>Plan Your Weekend</Link>
+                </h4>
+            </div>
+            <div className="box">
+                 <h4>
+                     <Link to="/tocook" style={navStyle}>Holidays Planning</Link>
+                 </h4>
+            </div>
             </div>
 
         </div>
     )
 }  
 function GuestGreeting(props){
-    return<h1>Plesae Sign Up!</h1>
+    return<h1 className ="log-design mt-5">Plesae Sign Up!</h1>
 }
 
 function Greeting(props){
@@ -72,12 +108,23 @@ function Greeting(props){
 
 function LoginButton(props){
     return(
-          <button onClick={props.onClick}>Login</button>              
+          <MuiThemeProvider>
+            <RaisedButton label="Login"
+                    primary={false} 
+                    onClick={props.onClick} 
+                    className="btn-log mt-5"
+                />     
+          </MuiThemeProvider>              
     )
 }
 
 function LogoutButton(props){
     return(
-       <button onClick={props.onClick}>Logout</button>       
+        <MuiThemeProvider>
+            <RaisedButton label="Logout"
+                    primary={true} 
+                    onClick={props.onClick} 
+                />   
+        </MuiThemeProvider>      
     )
 }

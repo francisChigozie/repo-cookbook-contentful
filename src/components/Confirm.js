@@ -13,7 +13,7 @@ import RaisedButton from 'material-ui/RaisedButton'
         console.log(this.props)
         return (
             <MuiThemeProvider>
-                <h2 className="App-detail">Confirm Contact Details</h2>
+                <h2 className="App-detail mt-5">Confirm Contact Details</h2>
                 <br />
                 <List className="App-detail">
                     <ListItem

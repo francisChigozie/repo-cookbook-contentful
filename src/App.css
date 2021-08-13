@@ -75,8 +75,9 @@ html,body{
 
 .loginContainer{
   background-color: whitesmoke;
-  padding-left: 50px;
+  
   margin-top: 50px;
+  justify-content: space-around;
 }
 .box{
   background-color: rgba(36, 110, 36, 0.9); 
@@ -114,4 +115,8 @@ html,body{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.log-bar{
+  padding-left: 40px;
 }

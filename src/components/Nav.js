@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link, BrowserRouter, Route} from 'react-router-dom';
 import React,{useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -6,23 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 
 function Nav() {
-  
-
-    /* fetch(`${process.env.REACT_APP_API_URL}/app/users`, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: JSON.stringify()
-    })
-    .then(res => res.json())
-    .then(res => {
-      //move the user to the logged in route / component
-      console.log(res)
-    })
-    .catch(err => alert(err))*/
-  
-
+   
     const navStyle = {
         color: 'white', textDecoration: 'none'
     }
@@ -45,7 +29,6 @@ function Nav() {
                 justifyContent: 'space-evenly',
                 marginTop: '-1rem',
                 }}>
-                 
                 <Link style={navStyle} to="/about" >
                     <li>About</li>
                 </Link>
@@ -55,22 +38,17 @@ function Nav() {
                 <Link style={navStyle} to="/contact" >
                     <li>Contact</li>
                 </Link>
-                
             </ul>
-            
         </nav>
-        <Link to="/login">
-                    
-                      <RaisedButton label="Login"
-                        primary={true}
+                <Link to="/login">
+                    <RaisedButton label="Login"
+                       primary={true}
                     />
-                    
                 </Link>
     </div>
   </MuiThemeProvider>
   );
 }
-
 export default Nav;
 
 

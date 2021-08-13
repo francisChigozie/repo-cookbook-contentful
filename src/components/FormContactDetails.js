@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton'
         const {firstName, lastName, email} = values
         return (
             <MuiThemeProvider >
-                <h2 className="App-detail">Please Fill in The Form Below</h2><br />
+                <h2 className="App-detail mt-5">Please Fill in The Form Below</h2><br />
                 <TextField  hintText="Enter Your First Name"
                         floatingLabelFixed="First Name"
                         name="firstName"
