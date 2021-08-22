@@ -1,28 +1,38 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { useParams } from 'react-router';
+import axios from 'axios';
 
 import React,{Fragment,useState} from 'react'
 
 export default function EditExercise( {exercise}) {
+    const [firstName,setFirstName] = useState(exercise.firstName);
     const [description,setDescription] = useState(exercise.description);
-    //const [duration,setDuration] = useState(exercise.duration);
+    const [duration,setDuration] = useState(exercise.duration);
+    const [date,setDate] = useState(exercise.date);
+    
 
     // Update Description function
-    const updateDescription = async (e) => {
+    const updateExerciseDes = async (e) => {
         e.preventDefault();
+
         try{
-         const body = {description};
-         const response = await fetch(`${process.env.REACT_APP_API_URL}app/exercises/${exercise.exercise_id}`,{
-             method: "PUT",
-             headers: {"Content-Type": "application/json"},
-             body: JSON.stringify(body)
+        const exercise = {firstName,description,duration,date} ;
+        var update = exercise;
+         console.log(update)
+         const response = await axios(`${process.env.REACT_APP_API_URL}app/exercises/update${exercise._id}`,{
+          method: "PUT",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(update)
          });
-         console.log(response)
-         window.location="/exercise";
+         console.log(response.json())
+         //window.location="/exercise";
+         alert('Updated successfully!');
         }
         catch(err) {
             console.error(err.message)
+            alert('An error occurred! Try updating again.');
         }
+
     }
     return (
         <MuiThemeProvider>
@@ -30,12 +40,12 @@ export default function EditExercise( {exercise}) {
 <button type="button" 
         class="btn btn-warning" 
         data-toggle="modal" 
-        data-target={`#id${exercise.exercise_id}`}>
+        data-target={`#id${exercise._id}`}>
         Edit
 </button>
 
-<div class="modal" id={`id${exercise.exercise_id}`} 
-     onClick={() => setDescription(exercise.description)}>
+<div class="modal" id={`id${exercise._id}`} 
+     onClick={() => setDescription(exercise.setDescription)}>
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -52,7 +62,7 @@ export default function EditExercise( {exercise}) {
 
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal"
-        onClick={e => updateDescription}>Edit</button>
+        onClick={updateExerciseDes}>Edit</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"
         onClick={() => setDescription(exercise.description)}>Close</button>
       </div>

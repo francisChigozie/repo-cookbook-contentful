@@ -1,5 +1,6 @@
 import React,{Fragment,useState} from 'react'
 
+
 export default function ( {todo}) {
     const [description,setDescription] = useState(todo.description);
 
@@ -8,13 +9,14 @@ export default function ( {todo}) {
         e.preventDefault();
         try{
          const body = {description};
-         const response = await fetch(`${process.env.REACT_APP_API_URL}/app/todos/${todo.todo_id}`,{
+         console.log(todo)
+         const response = await fetch(`${process.env.REACT_APP_API_URL}/app/todos/update/${todo._id}`,{
              method: "PUT",
              headers: {"Content-Type": "application/json"},
              body: JSON.stringify(body)
          });
-         console.log(response)
-         window.location = "/";
+         console.log(response.json())
+         window.location = "/tocook";
         }
         catch(err) {
             console.error(err.message)
@@ -25,11 +27,11 @@ export default function ( {todo}) {
 <button type="button" 
         class="btn btn-warning" 
         data-toggle="modal" 
-        data-target={`#id${todo.todo_id}`}>
+        data-target={`#id${todo._id}`}>
         Edit
 </button>
 
-<div class="modal" id={`id${todo.todo_id}`} 
+<div class="modal" id={`id${todo._id}`} 
      onClick={() => setDescription(todo.description)}>
   <div class="modal-dialog">
     <div class="modal-content">
@@ -47,7 +49,7 @@ export default function ( {todo}) {
 
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal"
-        onClick={e => updateDescription}>Edit</button>
+        onClick={ updateDescription}>Edit</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"
         onClick={() => setDescription(todo.description)}>Close</button>
       </div>

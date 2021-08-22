@@ -1,61 +1,70 @@
-
+import axios from 'axios'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import React, { useState} from 'react'
 
 function ContactForm(){
-  const [first,setFirst] = useState("")
-  const [last,setLast] = useState("")
+  const [fullName,setFullName] = useState("")
   const [email,setEmail] = useState("")
-  const [text,setText] = useState("")
+  const [subject,setSubject] = useState("")
+  const [txtArea,setTxtArea] = useState("")
 
-function handleSubmit(e){
-     e.preventDeault()
-     const addInput = e.target.value;
-     setEmail(addInput) 
-     setFirst(addInput)
-     setLast(addInput)
-     setText(addInput)
-  }
- 
-  function handleChange(e){
-  //e.preventDeault();
-  const addInput = e.target.value;
-  }
- 
+ const handleSubmit =async (e) =>{
+       e.preventDefault();
+         try{
+       const mail = {
+           fullName,
+           email,
+           subject,
+           txtArea
+         };
+       const response = await fetch(`${process.env.REACT_APP_API_URL}/app/mail`,{
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(mail)
+       } )
+       console.log(response);
+        }
+        catch(err){console.error(err.message)}
+    
+         window.location = "/contact";
+    }
+
          return (
            <MuiThemeProvider >
                 <React.Fragment>
                   <form onSubmit={handleSubmit}>
                     <h2 className="App-detail mt-4">Enter Contact Details</h2><br />
-                    <TextField  hintText="Enter Your First Name"
-                           floatingLabelFixed="First Name"
-                           onChange={handleChange}
+                    <TextField  hintText="Enter Your Full Name"
+                           floatingLabelFixed="Full Name"
+                           onChange={e => setFullName(e.target.value)}
                             className="txt-bar"/>
-                <br />
-                   <TextField  hintText="Enter Your Last Name"
-                           floatingLabelFixed="Last Name"
-                           onChange={handleChange}
-                           className="txt-bar"/>
                 <br />
                     <TextField  hintText="Enter Your Email"
                            floatingLabelFixed="Email"
-                           onChange={handleChange}
+                           onChange={e => setEmail(e.target.value)}
                            className="txt-bar"/><br />
+                           <TextField  hintText="Enter The Subject"
+                           floatingLabelFixed="Subject"
+                           onChange={e => setSubject(e.target.value)}
+                           className="txt-bar"/>
+                <br />
                           <label className="txt-bar"><textarea placeholder="Write your information here..."
                                            id="text" rows
                                            ="10" cols="40"
                                            
-                                           onChange={handleChange}>
+                                           onChange={e => setTxtArea(e.target.value)}>
 
                           </textarea></label><br />
                    <label className="txts-bar"><RaisedButton label="Submit"  
                            primary={true} 
                            style={btnStyle.button} 
                            type="submit"
-                           /></label>                       
-                 </form>
+                           onClick={handleSubmit}
+                            /></label>  
+                                             
+                           </form> 
                 </React.Fragment>
             </MuiThemeProvider>
         );

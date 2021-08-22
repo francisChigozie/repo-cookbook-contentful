@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Login from './Login';
 
+
   // get token
 const token = localStorage.getItem("sessionToken")
 
@@ -128,3 +129,7 @@ function LogoutButton(props){
         </MuiThemeProvider>      
     )
 }
+
+ /*const logout = () => {
+  localstorage.setItem("sessionToken",null)
+}*/

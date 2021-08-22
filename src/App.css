@@ -19,6 +19,10 @@ html,body{
   background-color: whitesmoke;
 }
 
+.sch-bar{
+  margin-left: 0rem;
+}
+
 .container {
   display: flex;
   width: 600px;
@@ -27,7 +31,7 @@ html,body{
 
 .wrapper {
   width: 600px;
-  margin-left: -120px;
+  margin-left: 360px;
 }
 :any-link{
   text-decoration: greenyellow;
@@ -119,4 +123,24 @@ html,body{
 
 .log-bar{
   padding-left: 40px;
+}
+
+.image{
+  color: green;
+  text-align: center;
+}
+.para{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+  padding-left: 350px;
+  justify-content: flex-start;
+}
+.graph{
+  display: flex;
+  max-width: 900px;
+  margin-top: -1.9rem;
+  
+}
+span{
+  padding-left: 95px;
 }
