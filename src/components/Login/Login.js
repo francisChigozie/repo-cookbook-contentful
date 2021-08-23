@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
+import { BrowserRouter, Switch, Route,Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import './Login.css';
 import LoginControl from './LoginControl';
-import PropTypes from 'prop-types';
+
 
 
 async function loginUser(credentials) {
@@ -19,20 +20,20 @@ async function loginUser(credentials) {
 }
 
 
-export default function Login({updateToken}) {
+export default function Login({setToken}) {
      const [username, setUserName] = useState();
      const [password, setPassword] = useState();
      
-    
+
      const handleSubmit = async e => {
      e.preventDefault();
      const token = await loginUser({
       username,
       password
     });
-     updateToken(token);
-
-
+    
+    return<LoginControl />
+    
   }
 console.log(username)
      return(
@@ -49,15 +50,19 @@ console.log(username)
                     onChange={e => setPassword(e.target.value)}
                     defaultValue={password} className="log-bar"/>
                 <br />
+                <Link to="/dashboard">
                 <label className="log-bar mt-5"><RaisedButton label="Submit"
                     primary={true} 
-                    onClick={handleSubmit}
+                    
                     /> 
-                </label>                          
+                </label></Link>   
+                    <BrowserRouter>
+                   <Switch>
+                     <Route path="/dashboard">
+                        <LoginControl />
+                     </Route>
+                   </Switch>
+                </BrowserRouter>                    
             </MuiThemeProvider> 
   )
 }
-
-     Login.propTypes = {
-     setToken: PropTypes.func.isRequired
-    }

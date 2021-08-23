@@ -5,35 +5,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Login from './Login';
 
 
-  // get token
-const token = localStorage.getItem("sessionToken")
-
-if(token) {
-    // user has a session / is logged in 
-}
-// save token
-const storedToken = localStorage.getItem('sessionToken') || null;
-
 class LoginControl extends React.Component {
     constructor(props){
         super(props);
        this.handleLoginClick = this.handleLoginClick.bind(this);
        this.handleLogoutClick = this.handleLogoutClick.bind(this);
-       this.handleUpdateToken = this.handleUpdateToken.bind(this);
 
        this.state = {isLoggedIn: false};
-      this.state = {token: storedToken};
     }
-    
-  handleUpdateToken({token}){
-      console.log(token)
-      this.setState(localStorage.setItem("sessionToken", token.token))
 
-      if(!token) {
-    return<Login updateToken={this.updateToken(token)}/> 
-  }
-
-}
     handleLoginClick(){
         this.setState({isLoggedIn: true});
     }

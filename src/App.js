@@ -49,7 +49,6 @@ function App() {
 }
 const Home = () =>{
   const [articles, setArticles] = useState([]);
-  
 
   useEffect(() => {
     
