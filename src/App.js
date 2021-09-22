@@ -25,7 +25,7 @@ function App() {
     <Router>
     <div className="App-contact">
        <div>
-          <Nav />
+          <Nav className="nav-bar"/>
           <Switch>
              <Route path="/" exact component={Home}/>
              <Route path="/about" component={About}/>
@@ -63,7 +63,7 @@ const Home = () =>{
           if(articles.length){
      return(
     <MuiThemeProvider >
-       <label className="contentful"><div className="container ">
+       <div className="container ">
           <header>
 
           </header>
@@ -72,12 +72,12 @@ const Home = () =>{
                <Posts posts={articles}/>
              </div>
           </main>
-       </div></label>
+       </div>
     </MuiThemeProvider>
   )
           }else{
              return(
-                <h1>loading..</h1>
+                <h1>..loading</h1>
              )
           }
  

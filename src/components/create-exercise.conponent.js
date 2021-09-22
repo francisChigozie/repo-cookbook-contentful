@@ -62,7 +62,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
         console.log(exercise)
         
-        axios.post(`http://localhost:4000/app/exercise/`, exercise)
+        axios.post(`https://contentful-cookbook.herokuapp.com/`, exercise)
           .then(res => console.log(res.data));
         window.location = "/exercise";
     }

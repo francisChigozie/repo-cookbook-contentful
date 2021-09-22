@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .submit-btn{
   padding-left: 18px;
   
@@ -26,12 +30,13 @@ html,body{
 .container {
   display: flex;
   width: 600px;
-  margin-top: 0rem;
+  margin-left: 0px;
 }
 
 .wrapper {
   width: 600px;
-  margin-left: 360px;
+  margin-left: -1px;
+  background-image: url();
 }
 :any-link{
   text-decoration: greenyellow;
@@ -71,10 +76,6 @@ html,body{
 .txts-bar{
   padding-left: 80px;
   margin-left: -3.5rem;
-}
-
-.contentful{
-  margin-left: -450px;
 }
 
 .loginContainer{
@@ -128,19 +129,20 @@ html,body{
 .image{
   color: green;
   text-align: center;
+  margin-left: -160px;
 }
-.para{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 14px;
-  padding-left: 350px;
-  justify-content: flex-start;
-}
+
 .graph{
   display: flex;
-  max-width: 900px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
   margin-top: -1.9rem;
   
 }
-span{
-  padding-left: 95px;
+.chigo{
+  margin-left: 200px;
+}
+.about-page{
+  width: 500px;
+ margin-left: 15px;  
 }
