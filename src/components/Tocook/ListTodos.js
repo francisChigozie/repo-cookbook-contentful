@@ -11,14 +11,14 @@ export default function ListTodos() {
 
     // Delete Button
    const deleteTodo = async (id) => {
-    await axios.delete(`${process.env.REACT_APP_API_URL}/app/todos/${id}`)
+    await axios.delete(`${process.env.REACT_APP_API_URL}/todos/${id}`)
            .then(res => console.log(res.todos));
             setTodos(todos.filter(todo => todo._id !==id));
     }
 
     const getTodos = async () => {
         try{
-       const response = await fetch(`${process.env.REACT_APP_API_URL}/app/todos`,{
+       const response = await fetch(`${process.env.REACT_APP_API_URL}/todos`,{
            method: "GET"
        });
        const jsonData = await response.json();

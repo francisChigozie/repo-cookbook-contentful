@@ -23,7 +23,7 @@ import "react-datepicker/dist/react-datepicker.css";
     }
 
     componentDidMount(){
-        axios.get('http://localhost:4000/app/users')
+        axios.get(`${process.env.REACT_APP_API_URL}/users`)
           .then(response => {
               if(response.data.length > 0){
                   this.setState({
@@ -62,7 +62,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
         console.log(exercise)
         
-        axios.post(`https://contentful-cookbook.herokuapp.com/`, exercise)
+        axios.post(`${process.env.REACT_APP_API_URL}/exercise`)
           .then(res => console.log(res.data));
         window.location = "/exercise";
     }

@@ -9,7 +9,7 @@ import LoginControl from './LoginControl';
 
 
 async function loginUser(credentials) {
- return fetch('https://contentful-cookbook.herokuapp.com/', {
+ return fetch(`${process.env.REACT_APP_API_URL}`, {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'

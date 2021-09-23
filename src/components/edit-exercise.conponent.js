@@ -24,7 +24,7 @@ export default function EditExercise( {exercise}) {
          };
          var update = exercise;
          console.log(update)
-       const response = await fetch(`${process.env.REACT_APP_API_URL}/app/exercises/update/:id`,{
+       const response = await fetch(`${process.env.REACT_APP_API_URL}/exercises/update/:id`,{
           method: "PUT",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(update)

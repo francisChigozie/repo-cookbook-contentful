@@ -9,7 +9,7 @@ export default function InputTodo() {
          e.preventDefault();
         try{
        const body = {description};
-       const response = await fetch(`${process.env.REACT_APP_API_URL}/app/todo`,{
+       const response = await fetch(`${process.env.REACT_APP_API_URL}/todo`,{
           method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(body)

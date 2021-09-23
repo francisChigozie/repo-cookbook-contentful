@@ -11,7 +11,7 @@ export default function ExerciseList() {
 
     // Delete Button
     const deleteExercise = async (id) => {
-    await axios.delete(`${process.env.REACT_APP_API_URL}/app/exercises/${id}`)
+    await axios.delete(`${process.env.REACT_APP_API_URL}/exercises/${id}`)
            .then(res => console.log(res.exercises));
             setExercise(exercises.filter(exercise => exercise._id !==id));
     }
@@ -29,7 +29,7 @@ export default function ExerciseList() {
 
     const getExercises = async () => {
         try{
-       const response = await fetch(`${process.env.REACT_APP_API_URL}/app/exercises`,{
+       const response = await fetch(`${process.env.REACT_APP_API_URL}/exercises`,{
            method: "GET"
        })
        const jsonData = await response.json();

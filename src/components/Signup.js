@@ -38,7 +38,7 @@ export class Contact extends Component {
 
     console.log("user confirmed form, submitting now", userData, process.env.REACT_APP_API_URL)
 
-    fetch(`${process.env.REACT_APP_API_URL}/app/user`, {
+    fetch(`${process.env.REACT_APP_API_URL}/user`, {
       headers: {
         'Content-Type': 'application/json'
       },

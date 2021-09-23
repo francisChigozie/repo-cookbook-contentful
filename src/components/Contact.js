@@ -19,7 +19,7 @@ function ContactForm(){
            subject,
            txtArea
          };
-       const response = await fetch(`${process.env.REACT_APP_API_URL}/app/mail`,{
+       const response = await fetch(`${process.env.REACT_APP_API_URL}/mail`,{
           method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(mail)

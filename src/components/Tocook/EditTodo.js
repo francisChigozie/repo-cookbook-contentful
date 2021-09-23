@@ -10,7 +10,7 @@ export default function ( {todo}) {
         try{
          const body = {description};
          console.log(todo)
-         const response = await fetch(`${process.env.REACT_APP_API_URL}/app/todos/update/${todo._id}`,{
+         const response = await fetch(`${process.env.REACT_APP_API_URL}/todos/update/${todo._id}`,{
              method: "PUT",
              headers: {"Content-Type": "application/json"},
              body: JSON.stringify(body)
