@@ -52,22 +52,12 @@ function UserGreeting(props){
             <div className="loginContainer App-detail" id="flex">
             <div className="box">
                 <h4>
-                    <Link to="/create" style={navStyle}>Create exercise</Link>
+                    <Link to="/create" style={navStyle}>MERN Todo</Link>
                 </h4>
             </div>
             <div className="box">
                  <h4>
-                     <Link to="/tocook" style={navStyle}>Create To-Cook</Link>
-                 </h4>
-            </div>
-            <div className="box">
-                <h4>
-                    <Link to="/create" style={navStyle}>Plan Your Weekend</Link>
-                </h4>
-            </div>
-            <div className="box">
-                 <h4>
-                     <Link to="/tocook" style={navStyle}>Holidays Planning</Link>
+                     <Link to="/tocook" style={navStyle}>PERN Todo</Link>
                  </h4>
             </div>
             </div>

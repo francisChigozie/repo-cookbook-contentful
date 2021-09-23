@@ -28,7 +28,7 @@ export default function InputTodo() {
                  value={description} 
                  placeholder="Make a food time table.."
                  onChange={e => setDescription(e.target.value)}/>
-                 <button className="btn-success">ADD</button></label>
+                 <button className="btn-success">ADD TODO</button></label>
             </form>
         </MuiThemeProvider>
     )
