@@ -62,7 +62,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
         console.log(exercise)
         
-        axios.post(`${process.env.REACT_APP_API_URL}/exercise`)
+        axios.post(`${process.env.REACT_APP_API_URL}`, exercise)
           .then(res => console.log(res.data));
         window.location = "/exercise";
     }
