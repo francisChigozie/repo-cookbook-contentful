@@ -61,10 +61,19 @@ import "react-datepicker/dist/react-datepicker.css";
         }
 
         console.log(exercise)
+
+       const response = fetch(`${process.env.REACT_APP_API_URL}/exercise`,{
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(exercise)
+       } )
+       console.log(response);
+       window.location = "/exercise";
+      
         
-        axios.post(`https://evening-reef-67917.herokuapp.com`, exercise)
+       /* axios.post(`https://evening-reef-67917.herokuapp.com`, exercise)
           .then(res => console.log(res.data));
-        window.location = "/exercise";
+        window.location = "/exercise";*/
     }
 
     render() {
