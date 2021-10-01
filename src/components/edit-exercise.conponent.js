@@ -16,18 +16,17 @@ export default function EditExercise( {exercise}) {
         e.preventDefault();
 
     try{
-         const exercise = {
+         const body= {
            firstName,
            description,
            duration,
            date
          };
-         var update = exercise;
-         console.log(update)
-       const response = await fetch(`${process.env.REACT_APP_API_URL}/exercises/update/:id`,{
+         console.log(body)
+         const response = await fetch(`${process.env.REACT_APP_API_URL}/exercises/update/${exercise._id}`,{
           method: "PUT",
           headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(update)
+          body: JSON.stringify(body)
        });
      //console.log(response.json())
          window.location="/exercise";
