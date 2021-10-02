@@ -30,7 +30,6 @@ export default function EditExercise( {exercise}) {
        });
      //console.log(response.json())
          window.location="/exercise";
-         alert('Updated successfully!');
          }
          catch(err) {
             console.error(err.message)
